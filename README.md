@@ -1,4 +1,4 @@
-#Application Functionality
+# Application Functionality
 
 Current application allows users to find out necessary flights, purchase chosen tickets and return ones.
 
@@ -12,10 +12,10 @@ An application stores available routs matched with aircraft and free seats, purc
 All data load from .csv files for displaying information to user and verifying details before user make an action.
 When user make purchase or return ticket this information writes to соответствующий .csv file.
 
-#How To Launch Application
+# How To Launch Application
 
-#Application Structure
+# Application Structure
 
-##Data Model
+## Data Model
 
-##Layers Model
+## Layers Model
