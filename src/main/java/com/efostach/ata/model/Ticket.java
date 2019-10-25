@@ -1,30 +1,15 @@
 package com.efostach.ata.model;
 
-import java.util.Date;
-
 public class Ticket {
     private int ticketNumber;
     private String from;
     private String to;
     private String seatNumber;
     private String aircraft;
-    private Date date;
+    private String date;
     private TicketClass ticketClass;
 
-    public Ticket(int ticketNumber,
-                  String from,
-                  String to,
-                  String seatNumber,
-                  String aircraft,
-                  Date date,
-                  TicketClass ticketClass) {
-        this.ticketNumber = ticketNumber;
-        this.from = from;
-        this.to = to;
-        this.seatNumber = seatNumber;
-        this.aircraft = aircraft;
-        this.date = date;
-        this.ticketClass = ticketClass;
+    public Ticket() {
     }
 
     public int getTicketNumber() {
@@ -67,11 +52,11 @@ public class Ticket {
         this.aircraft = aircraft;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -81,5 +66,17 @@ public class Ticket {
 
     public void setTicketClass(TicketClass ticketClass) {
         this.ticketClass = ticketClass;
+    }
+
+    @Override
+    public String toString(){
+        return new StringBuilder().append(ticketNumber).append(",")
+                .append(from).append(",")
+                .append(to).append(",")
+                .append(seatNumber).append(",")
+                .append(aircraft).append(",")
+                .append(date).append(",")
+                .append(ticketClass)
+                .append("\n").toString();
     }
 }

@@ -1,4 +1,7 @@
 package com.efostach.ata.repository;
 
-public interface AircraftRepository {
+import com.efostach.ata.model.Aircraft;
+
+public interface AircraftRepository extends GenericRepository<Aircraft, Integer> {
+
 }

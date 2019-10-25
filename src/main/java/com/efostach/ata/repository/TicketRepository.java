@@ -1,4 +1,6 @@
 package com.efostach.ata.repository;
 
-public interface TicketRepository {
+import com.efostach.ata.model.Ticket;
+
+public interface TicketRepository extends GenericRepository<Ticket, Integer> {
 }

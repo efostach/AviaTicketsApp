@@ -1,4 +1,6 @@
 package com.efostach.ata.repository;
 
-public interface RoutRepository {
+import com.efostach.ata.model.Rout;
+
+public interface RoutRepository extends GenericRepository<Rout, Integer> {
 }

@@ -1,0 +1,9 @@
+1,LED,HND,1,QR-208
+2,HND,LED,2,QR-209
+3,LED,MSQ,1,BL-079
+4,MSQ,LED,3,BL-078
+5,MSQ,KBP,4,S7-599
+6,KBP,MSQ,2,S7-598
+7,null,null,null,null
+8,null,null,null,null
+9,null,null,null,null
