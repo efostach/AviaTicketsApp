@@ -4,8 +4,6 @@ public class Rout {
     private Integer id;
     private String from;
     private String to;
-    private String aircraftId;
-    private String flightNumber;
 
     public Rout() {
     }
@@ -34,29 +32,11 @@ public class Rout {
         this.to = to;
     }
 
-    public String getAircraftId() {
-        return aircraftId;
-    }
-
-    public void setAircraftId(String aircraftId) {
-        this.aircraftId = aircraftId;
-    }
-
-    public String getFlightNumber() {
-        return flightNumber;
-    }
-
-    public void setFlightNumber(String flightNumber) {
-        this.flightNumber = flightNumber;
-    }
-
     @Override
     public String toString(){
         return new StringBuilder().append(id).append(",")
                 .append(from).append(",")
-                .append(to).append(",")
-                .append(aircraftId).append(",")
-                .append(flightNumber)
+                .append(to)
                 .append("\n").toString();
     }
 }

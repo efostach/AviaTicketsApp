@@ -1,39 +1,47 @@
 package com.efostach.ata.model;
 
 public class Ticket {
-    private int ticketNumber;
-    private String from;
-    private String to;
+    private Integer ticketNumber;
+    private String firstName;
+    private String lastName;
+    private Integer flightId;
     private String seatNumber;
-    private String aircraft;
-    private String date;
-    private TicketClass ticketClass;
+    private SeatClass seatClass;
+    private TicketStatus status;
 
     public Ticket() {
     }
 
-    public int getTicketNumber() {
+    public Integer getTicketNumber() {
         return ticketNumber;
     }
 
-    public void setTicketNumber(int ticketNumber) {
+    public void setTicketNumber(Integer ticketNumber) {
         this.ticketNumber = ticketNumber;
     }
 
-    public String getFrom() {
-        return from;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getTo() {
-        return to;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Integer getFlightId() {
+        return flightId;
+    }
+
+    public void setFlightId(Integer flightId) {
+        this.flightId = flightId;
     }
 
     public String getSeatNumber() {
@@ -44,39 +52,32 @@ public class Ticket {
         this.seatNumber = seatNumber;
     }
 
-    public String getAircraft() {
-        return aircraft;
+    public SeatClass getSeatClass() {
+        return seatClass;
     }
 
-    public void setAircraft(String aircraft) {
-        this.aircraft = aircraft;
+    public void setSeatClass(SeatClass seatClass) {
+        this.seatClass = seatClass;
     }
 
-    public String getDate() {
-        return date;
+    public TicketStatus getStatus() {
+        return status;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public TicketClass getTicketClass() {
-        return ticketClass;
-    }
-
-    public void setTicketClass(TicketClass ticketClass) {
-        this.ticketClass = ticketClass;
+    public void setStatus(TicketStatus status) {
+        this.status = status;
     }
 
     @Override
     public String toString(){
         return new StringBuilder().append(ticketNumber).append(",")
-                .append(from).append(",")
-                .append(to).append(",")
+                .append(firstName).append(",")
+                .append(lastName).append(",")
                 .append(seatNumber).append(",")
-                .append(aircraft).append(",")
-                .append(date).append(",")
-                .append(ticketClass)
+                .append(flightId).append(",")
+                .append(seatNumber).append(",")
+                .append(seatClass).append(",")
+                .append(status)
                 .append("\n").toString();
     }
 }

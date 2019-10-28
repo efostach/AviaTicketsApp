@@ -1,6 +1,5 @@
 package com.efostach.ata.repository.io;
 
-import com.efostach.ata.model.Seat;
 import com.efostach.ata.repository.SeatRepository;
 
 import java.io.FileNotFoundException;

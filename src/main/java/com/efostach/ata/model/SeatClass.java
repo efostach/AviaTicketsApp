@@ -1,5 +1,5 @@
 package com.efostach.ata.model;
 
-public enum TicketClass {
+public enum SeatClass {
     BUSINESS, ECONOMY
 }
