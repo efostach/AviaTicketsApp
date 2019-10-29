@@ -10,13 +10,6 @@ public class Ticket {
     private TicketStatus status;
 
     public Ticket() {
-        this.ticketNumber = null;
-        this.firstName = null;
-        this.lastName = null;
-        this.flightId = null;
-        this.seatNumber = null;
-        this.seatClass = null;
-        this.status = null;
     }
 
     public Integer getTicketNumber() {
