@@ -1,10 +1,12 @@
 package com.efostach.ata.repository.io;
 
+import com.efostach.ata.model.SeatClass;
 import com.efostach.ata.model.Ticket;
-import com.efostach.ata.model.TicketClass;
+import com.efostach.ata.model.TicketStatus;
 import com.efostach.ata.repository.TicketRepository;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -25,7 +27,6 @@ public class JavaIOTicketRepositoryImpl implements TicketRepository {
                 result = ticket;
             }
         }
-        System.out.println(result.toString());
         return result;
     }
 
@@ -42,7 +43,25 @@ public class JavaIOTicketRepositoryImpl implements TicketRepository {
     }
 
     @Override
-    public Ticket update(Ticket ticket) {
+    public Ticket update(Ticket ticket) throws IOException {
+        List<Ticket> tickets = stringToTicket();
+        clearFile(file);
+        for (Ticket element : tickets) {
+            if (element.getTicketNumber().equals(ticket.getTicketNumber())) {
+                element.setFirstName(ticket.getFirstName());
+                element.setLastName(ticket.getLastName());
+                element.setFlightId(ticket.getFlightId());
+                element.setSeatClass(ticket.getSeatClass());
+                element.setSeatNumber(ticket.getSeatNumber());
+                element.setStatus(ticket.getStatus());
+            }
+            writeDataToFile(file, element.toString());
+        }
+        return getById(ticket.getTicketNumber());
+    }
+
+    @Override
+    public Ticket delete(Ticket ticket) {
         return null;
     }
 
@@ -56,12 +75,12 @@ public class JavaIOTicketRepositoryImpl implements TicketRepository {
 
             Ticket ticket = new Ticket();
             ticket.setTicketNumber(Integer.valueOf(attributes[0]));
-            ticket.setFrom(attributes[1]);
-            ticket.setTo(attributes[1]);
-            ticket.setAircraft(attributes[0]);
-            ticket.setDate(attributes[3]);
-            ticket.setSeatNumber(attributes[2]);
-            ticket.setTicketClass(TicketClass.valueOf(attributes[4]));
+            ticket.setFirstName(attributes[1]);
+            ticket.setLastName(attributes[2]);
+            ticket.setFlightId(Integer.valueOf(attributes[3]));
+            ticket.setSeatNumber(attributes[4]);
+            ticket.setSeatClass(SeatClass.valueOf(attributes[5]));
+            ticket.setStatus(TicketStatus.valueOf(attributes[6]));
             ticketsSet.add(ticket);
         }
         return ticketsSet;

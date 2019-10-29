@@ -1,5 +1,9 @@
 package com.efostach.ata.view;
 
+import com.efostach.ata.model.Ticket;
+import com.efostach.ata.repository.io.JavaIOTicketRepositoryImpl;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class AppConsole {
@@ -7,6 +11,16 @@ public class AppConsole {
     private Scanner scanner = new Scanner(System.in);
 
     public void run() {
+
+        JavaIOTicketRepositoryImpl io = new JavaIOTicketRepositoryImpl();
+        try {
+            Ticket ticket = io.getById(1);
+            ticket.setFirstName("A");
+            io.update(ticket);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         printGeneralMenu();
 
         switch (scanner.nextLine()) {

@@ -1,6 +1,7 @@
 package com.efostach.ata.repository;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public interface GenericRepository<T,ID> {
@@ -11,5 +12,7 @@ public interface GenericRepository<T,ID> {
 
     T create(T t) throws Exception;
 
-    T update(T t);
+    T update(T t) throws IOException;
+
+    T delete(T t);
 }

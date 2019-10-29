@@ -4,6 +4,7 @@ import com.efostach.ata.model.Rout;
 import com.efostach.ata.repository.RoutRepository;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -42,12 +43,26 @@ public class JavaIORoutRepositoryImpl implements RoutRepository {
     }
 
     @Override
-    public Rout update(Rout rout) {
+    public Rout update(Rout rout) throws IOException {
+        List<Rout> routs = stringToRout();
+        clearFile(file);
+        for (Rout element : routs) {
+            if (element.getId().equals(rout.getId())) {
+                element.setFrom(rout.getFrom());
+                element.setTo(rout.getTo());
+            }
+            writeDataToFile(file, element.toString());
+        }
+        return getById(rout.getId());
+    }
+
+    @Override
+    public Rout delete(Rout rout) {
         return null;
     }
 
     private List<Rout> stringToRout() throws FileNotFoundException {
-        List<Rout> ticketsSet = new ArrayList<>();
+        List<Rout> routSet = new ArrayList<>();
         Iterator iterator = readDataFromFile(file).iterator();
 
         while (iterator.hasNext()) {
@@ -58,10 +73,8 @@ public class JavaIORoutRepositoryImpl implements RoutRepository {
             rout.setId(Integer.valueOf(attributes[0]));
             rout.setFrom(attributes[1]);
             rout.setTo(attributes[2]);
-            rout.setAircraftId(attributes[3]);
-            rout.setFlightNumber(attributes[4]);
-            ticketsSet.add(rout);
+            routSet.add(rout);
         }
-        return ticketsSet;
+        return routSet;
     }
 }

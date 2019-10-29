@@ -10,6 +10,13 @@ public class Ticket {
     private TicketStatus status;
 
     public Ticket() {
+        this.ticketNumber = null;
+        this.firstName = null;
+        this.lastName = null;
+        this.flightId = null;
+        this.seatNumber = null;
+        this.seatClass = null;
+        this.status = null;
     }
 
     public Integer getTicketNumber() {
@@ -75,7 +82,6 @@ public class Ticket {
                 .append(lastName).append(",")
                 .append(seatNumber).append(",")
                 .append(flightId).append(",")
-                .append(seatNumber).append(",")
                 .append(seatClass).append(",")
                 .append(status)
                 .append("\n").toString();
