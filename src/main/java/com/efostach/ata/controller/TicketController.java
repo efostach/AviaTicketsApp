@@ -1,25 +1,21 @@
 package com.efostach.ata.controller;
 
-import com.efostach.ata.model.SeatClass;
-import com.efostach.ata.repository.io.JavaIOTicketRepositoryImpl;
+import com.efostach.ata.model.*;
+import com.efostach.ata.service.TicketService;
+
+import java.io.IOException;
+
 
 public class TicketController {
 
-    private JavaIOTicketRepositoryImpl ioTicket = new JavaIOTicketRepositoryImpl();
+    private TicketService ticketService = new TicketService();
 
-    public void findTicketByFilter(String from, String to, String date, SeatClass classType) {
-        //ioTicket.getAll();
+    public Ticket buyTicket(Integer flightId, Integer seatClass, String firstName, String lastName) throws Exception {
+        Ticket ticket = ticketService.buyTicket(flightId, seatClass, firstName, lastName);
+        return ticket;
     }
 
-    public void buyTicket(String from, String to, String date, SeatClass classType, String seatNumber) {
-        //ioTicket.create(new Ticket());
-    }
-
-    public void returnTicket(Integer ticketNumber, String LastName) {
-
-    }
-
-    private void findTicketByNumber() {
-
+    public Ticket returnTicket(Integer ticketNumber, String lastName) throws IOException {
+        return ticketService.returnTicket(ticketNumber, lastName);
     }
 }

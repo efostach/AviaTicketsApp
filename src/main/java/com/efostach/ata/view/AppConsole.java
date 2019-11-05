@@ -1,25 +1,19 @@
 package com.efostach.ata.view;
 
-import com.efostach.ata.model.Ticket;
-import com.efostach.ata.repository.io.JavaIOTicketRepositoryImpl;
+import com.oracle.jrockit.jfr.InvalidValueException;
 
-import java.io.IOException;
 import java.util.Scanner;
+
+import static com.efostach.ata.controller.ControllerUtil.getIntegerValue;
 
 public class AppConsole {
 
     private Scanner scanner = new Scanner(System.in);
+    private FlightView fw = new FlightView();
+    private RoutView rw = new RoutView();
+    private TicketView tw = new TicketView();
 
     public void run() {
-
-        JavaIOTicketRepositoryImpl io = new JavaIOTicketRepositoryImpl();
-        try {
-            Ticket ticket = io.getById(1);
-            ticket.setFirstName("A");
-            io.update(ticket);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         printGeneralMenu();
 
@@ -31,12 +25,31 @@ public class AppConsole {
             }
             case "1": {
                 printFindTicketsSubGeneralMenu();
-                goToFindTicketsSubGeneralMenu();
+                rw.showAllRouts();
+                Integer routNumber = transferToIntegerValue();
+
+
+                printChooseDateToFindTicketsMenu();
+                String date = getFieldInputValue();
+                Integer seatClass = transferToIntegerValue();
+                fw.showDatesForRout(routNumber, date, seatClass);
+
+                printChooseTicketToBuyMenu();
+                Integer listNumber = transferToIntegerValue();
+
+                printPutPersonalInfoToBuyTicketMenu();
+                String firstName = getFieldInputValue();
+                String lastName = getFieldInputValue();
+                tw.buyTicket(listNumber, seatClass, firstName, lastName);
+                run();
                 break;
             }
             case "2": {
                 printReturnTicketSubGeneralMenu();
-                goToReturnTicketSubGeneralMenu();
+                Integer ticketNumber = transferToIntegerValue();
+                String lastName = getFieldInputValue();
+                tw.returnTicket(ticketNumber, lastName);
+                run();
                 break;
             }
             case "0": {
@@ -46,71 +59,52 @@ public class AppConsole {
     }
 
     private void printGeneralMenu() {
-        System.out.println("1. Find Ticket");
+        System.out.println("\n1. Find Ticket");
         System.out.println("2. Return ticket");
         System.out.println("0. Exit \n");
     }
 
     private void printFindTicketsSubGeneralMenu() {
-        System.out.println("Enter FROM, TO, DATE, SEAT CLASS.");
-        System.out.println("From/to:");
-        System.out.println(" 1. LED");
-        System.out.println(" 2. HND");
-        System.out.println(" 3. MSQ");
-        System.out.println(" 4. KBP");
-        System.out.println("Seat classes:");
-        System.out.println(" 5. BUSINESS CLASS");
-        System.out.println(" 6. ECONOMY CLASS");
-        System.out.println("0. Exit \n");
+        System.out.println("\nEnter rout number");
     }
 
-    private void printСhooseTicketToBuySubGeneralMenu() {
-        System.out.println("Enter TICKET NUMBER.");
-        System.out.println("0. Exit \n");
+    private void printChooseDateToFindTicketsMenu() {
+        System.out.println("\nEnter 'date' and 'seat class' (1 - Business, 2 - Economy)");
+    }
+
+    private void printChooseTicketToBuyMenu() {
+        System.out.println("\nEnter number of the offered tickets");
+    }
+
+    private void printPutPersonalInfoToBuyTicketMenu() {
+        System.out.println("\nEnter 'first name' and 'last name'");
     }
 
     private void printReturnTicketSubGeneralMenu() {
-        System.out.println("Enter TICKET NUMBER and FAMILY NAME.");
-        System.out.println("0. Exit \n");
-    }
-
-    private void goToFindTicketsSubGeneralMenu() {
-        switch (scanner.nextLine()) {
-            default: {
-                printWrongSelection();
-                run();
-                break;
-            }
-            case "1": {
-
-                run();
-                break;
-            }
-            case "0": {
-                break;
-            }
-        }
-    }
-
-    private void goToReturnTicketSubGeneralMenu() {
-        switch (scanner.nextLine()) {
-            default: {
-                printWrongSelection();
-                run();
-                break;
-            }
-            case "1": {
-
-                run();
-                break;
-            }
-            case "0": {
-                break;
-            }
-        }
+        System.out.println("\nEnter 'ticket number' and 'last name'");
     }
 
     private void printWrongSelection() {
         System.out.println("Oops, it's wrong value.\n");
+    }
+
+    private Integer transferToIntegerValue() {
+        Integer input = null;
+        do {
+            try {
+                input = getIntegerValue(scanner.nextLine());
+            } catch (InvalidValueException ex) {
+                ex.getMessage();
+            }
+        } while (input == null);
+        return input;
+    }
+
+    private String getFieldInputValue() {
+        String input;
+        do {
+            input = scanner.nextLine();
+        } while (input.equals(""));
+        return input;
     }
 }

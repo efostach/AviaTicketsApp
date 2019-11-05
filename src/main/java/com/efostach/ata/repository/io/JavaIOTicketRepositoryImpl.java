@@ -78,7 +78,7 @@ public class JavaIOTicketRepositoryImpl implements TicketRepository {
             ticket.setFirstName(attributes[1]);
             ticket.setLastName(attributes[2]);
             ticket.setFlightId(Integer.valueOf(attributes[3]));
-            ticket.setSeatNumber(attributes[4]);
+            ticket.setSeatNumber(Integer.valueOf(attributes[4]));
             ticket.setSeatClass(SeatClass.valueOf(attributes[5]));
             ticket.setStatus(TicketStatus.valueOf(attributes[6]));
             ticketsSet.add(ticket);

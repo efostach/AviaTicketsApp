@@ -26,7 +26,6 @@ public class JavaIORoutRepositoryImpl implements RoutRepository {
                 result = rout;
             }
         }
-        System.out.println(result.toString());
         return result;
     }
 

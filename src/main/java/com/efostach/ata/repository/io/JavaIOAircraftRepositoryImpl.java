@@ -11,7 +11,7 @@ import java.util.List;
 
 import static com.efostach.ata.repository.io.IOUtil.*;
 
-class JavaIOAircraftRepositoryImpl implements AircraftRepository {
+public class JavaIOAircraftRepositoryImpl implements AircraftRepository {
 
     private static String file = "src/main/resources/aircraft.csv";
 
@@ -25,7 +25,6 @@ class JavaIOAircraftRepositoryImpl implements AircraftRepository {
                 result = aircraft;
             }
         }
-        System.out.println(result.toString());
         return result;
     }
 

@@ -5,7 +5,7 @@ public class Ticket {
     private String firstName;
     private String lastName;
     private Integer flightId;
-    private String seatNumber;
+    private Integer seatNumber;
     private SeatClass seatClass;
     private TicketStatus status;
 
@@ -44,11 +44,11 @@ public class Ticket {
         this.flightId = flightId;
     }
 
-    public String getSeatNumber() {
+    public Integer getSeatNumber() {
         return seatNumber;
     }
 
-    public void setSeatNumber(String seatNumber) {
+    public void setSeatNumber(Integer seatNumber) {
         this.seatNumber = seatNumber;
     }
 

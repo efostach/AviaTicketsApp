@@ -26,7 +26,6 @@ public class JavaIOFlightRepositoryImpl implements FlightRepository {
                 result = flight;
             }
         }
-        System.out.println(result.toString());
         return result;
     }
 
