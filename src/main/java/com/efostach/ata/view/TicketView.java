@@ -31,6 +31,7 @@ class TicketView {
                 + "\tLast Name: " + ticket.getLastName()
                 + "\tSeat: " + ticket.getSeatNumber()
                 + "\tClass: " + ticket.getSeatClass()
-                + "\tStatus: " + ticket.getStatus());
+                + "\tStatus: " + ticket.getStatus()
+                + "\tPrice: " + ticket.getPrice() + "$");
     }
 }

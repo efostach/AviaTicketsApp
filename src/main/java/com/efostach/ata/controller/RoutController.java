@@ -13,10 +13,4 @@ public class RoutController {
     public List<Rout> showAllRouts() throws FileNotFoundException {
         return ioRout.getAll();
     }
-
-    public Integer getRoutIdByName(String name) {
-        return null;
-    }
-
-
 }

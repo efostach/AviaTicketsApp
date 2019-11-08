@@ -8,8 +8,9 @@ public class Ticket {
     private Integer seatNumber;
     private SeatClass seatClass;
     private TicketStatus status;
+    private Integer price;
 
-    public Ticket() {
+    private Ticket() {
     }
 
     public Integer getTicketNumber() {
@@ -68,6 +69,14 @@ public class Ticket {
         this.status = status;
     }
 
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     @Override
     public String toString(){
         return new StringBuilder().append(ticketNumber).append(",")
@@ -76,7 +85,71 @@ public class Ticket {
                 .append(seatNumber).append(",")
                 .append(flightId).append(",")
                 .append(seatClass).append(",")
-                .append(status)
+                .append(status).append(",")
+                .append(price)
                 .append("\n").toString();
+    }
+
+    public static Builder newBuilder() {
+        return new Ticket().new Builder();
+    }
+
+    public class Builder {
+
+        private Builder() {
+
+        }
+
+        public Builder setTicketNumber(Integer ticketNumber) {
+            Ticket.this.ticketNumber = ticketNumber;
+
+            return this;
+        }
+
+        public Builder setFirstName(String firstName) {
+            Ticket.this.firstName = firstName;
+
+            return this;
+        }
+
+        public Builder setLastName(String lastName) {
+            Ticket.this.lastName = lastName;
+
+            return this;
+        }
+
+        public Builder setFlightId(Integer flightId) {
+            Ticket.this.flightId = flightId;
+
+            return this;
+        }
+
+        public Builder setSeatNumber(Integer seatNumber) {
+            Ticket.this.seatNumber = seatNumber;
+
+            return this;
+        }
+
+        public Builder setSeatClass(SeatClass seatClass) {
+            Ticket.this.seatClass = seatClass;
+
+            return this;
+        }
+
+        public Builder setStatus(TicketStatus status) {
+            Ticket.this.status = status;
+
+            return this;
+        }
+
+        public Builder setPrice(Integer price) {
+            Ticket.this.price = price;
+
+            return this;
+        }
+
+        public Ticket build() {
+            return Ticket.this;
+        }
     }
 }

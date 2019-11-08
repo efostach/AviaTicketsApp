@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FlightController {
 
-    JavaIOFlightRepositoryImpl ioFlight = new JavaIOFlightRepositoryImpl();
+    private JavaIOFlightRepositoryImpl ioFlight = new JavaIOFlightRepositoryImpl();
 
     public List<Flight> showDatesForRout(Integer routId, String date, Integer seatClass) throws FileNotFoundException {
         List<Flight> filteredFlightsByRout = new ArrayList<>();

@@ -48,12 +48,19 @@ public class JavaIOTicketRepositoryImpl implements TicketRepository {
         clearFile(file);
         for (Ticket element : tickets) {
             if (element.getTicketNumber().equals(ticket.getTicketNumber())) {
-                element.setFirstName(ticket.getFirstName());
-                element.setLastName(ticket.getLastName());
-                element.setFlightId(ticket.getFlightId());
-                element.setSeatClass(ticket.getSeatClass());
-                element.setSeatNumber(ticket.getSeatNumber());
-                element.setStatus(ticket.getStatus());
+//                Ticket ticket1 = element;
+//                System.out.println("ticket1" + ticket1.toString());
+                element = Ticket.newBuilder()
+                        .setTicketNumber(ticket.getTicketNumber())
+                        .setFirstName(ticket.getFirstName())
+                        .setLastName(ticket.getLastName())
+                        .setFlightId(ticket.getFlightId())
+                        .setSeatClass(ticket.getSeatClass())
+                        .setSeatNumber(ticket.getSeatNumber())
+                        .setStatus(ticket.getStatus())
+                        .setPrice(ticket.getPrice())
+                        .build();
+                System.out.println("element" + element.toString());
             }
             writeDataToFile(file, element.toString());
         }
@@ -73,14 +80,16 @@ public class JavaIOTicketRepositoryImpl implements TicketRepository {
             String element = (String) iterator.next();
             String[] attributes = element.split(REGEX);
 
-            Ticket ticket = new Ticket();
-            ticket.setTicketNumber(Integer.valueOf(attributes[0]));
-            ticket.setFirstName(attributes[1]);
-            ticket.setLastName(attributes[2]);
-            ticket.setFlightId(Integer.valueOf(attributes[3]));
-            ticket.setSeatNumber(Integer.valueOf(attributes[4]));
-            ticket.setSeatClass(SeatClass.valueOf(attributes[5]));
-            ticket.setStatus(TicketStatus.valueOf(attributes[6]));
+            Ticket ticket = Ticket.newBuilder()
+                    .setTicketNumber(Integer.valueOf(attributes[0]))
+                    .setFirstName(attributes[1])
+                    .setLastName(attributes[2])
+                    .setFlightId(Integer.valueOf(attributes[3]))
+                    .setSeatNumber(Integer.valueOf(attributes[4]))
+                    .setSeatClass(SeatClass.valueOf(attributes[5]))
+                    .setStatus(TicketStatus.valueOf(attributes[6]))
+                    .setPrice(Integer.valueOf(attributes[7]))
+                    .build();
             ticketsSet.add(ticket);
         }
         return ticketsSet;

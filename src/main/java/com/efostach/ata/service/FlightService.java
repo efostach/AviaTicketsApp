@@ -19,6 +19,22 @@ class FlightService {
         return null;
     }
 
+    Integer getSoldSeatsCount(Integer flightId) throws FileNotFoundException {
+        return ioFlight.getById(flightId).getSoldSeatsCount();
+    }
+
+    void incrementSoldSeatsCount(Integer flightId) throws IOException {
+        Flight flight = ioFlight.getById(flightId);
+        flight.setSoldSeatsCount(flight.getSoldSeatsCount() + 1);
+        ioFlight.update(flight);
+    }
+
+    void decrementSoldSeatsCount(Integer flightId) throws IOException {
+        Flight flight = ioFlight.getById(flightId);
+        flight.setSoldSeatsCount(flight.getSoldSeatsCount() - 1);
+        ioFlight.update(flight);
+    }
+
     private boolean checkIfFreeSeatsExists(Integer flightId, Integer seatClass) throws FileNotFoundException {
         TicketService ticketService = new TicketService();
         Integer currentSeats;
@@ -33,17 +49,5 @@ class FlightService {
             totalSeats = ioAircraft.getById(aircraftId).getEconomySeatsCount();
         }
         return currentSeats < totalSeats;
-    }
-
-    void incrementSoldSeatsCount(Integer flightId) throws IOException {
-        Flight flight = ioFlight.getById(flightId);
-        flight.setSoldSeatsCount(flight.getSoldSeatsCount() + 1);
-        ioFlight.update(flight);
-    }
-
-    void decrementSoldSeatsCount(Integer flightId) throws IOException {
-        Flight flight = ioFlight.getById(flightId);
-        flight.setSoldSeatsCount(flight.getSoldSeatsCount() - 1);
-        ioFlight.update(flight);
     }
 }

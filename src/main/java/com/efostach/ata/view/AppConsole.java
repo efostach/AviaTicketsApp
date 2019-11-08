@@ -1,6 +1,6 @@
 package com.efostach.ata.view;
 
-import com.oracle.jrockit.jfr.InvalidValueException;
+import com.efostach.ata.controller.exceptions.InvalidValueException;
 
 import java.util.Scanner;
 

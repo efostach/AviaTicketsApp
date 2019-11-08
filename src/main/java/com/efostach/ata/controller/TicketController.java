@@ -11,8 +11,7 @@ public class TicketController {
     private TicketService ticketService = new TicketService();
 
     public Ticket buyTicket(Integer flightId, Integer seatClass, String firstName, String lastName) throws Exception {
-        Ticket ticket = ticketService.buyTicket(flightId, seatClass, firstName, lastName);
-        return ticket;
+        return ticketService.buyTicket(flightId, seatClass, firstName, lastName);
     }
 
     public Ticket returnTicket(Integer ticketNumber, String lastName) throws IOException {
