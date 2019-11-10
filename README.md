@@ -18,3 +18,4 @@ To look up a particular ticket an application allows the user specify searching 
 To return purchased ticket user should input ticket number and second name only. After that application changes ticket status from 'PURCHASED' to 'RETURNED' and informs the user.
 
 ## Data Model
+![](/Users/macbook/Downloads/Untitled Diagram.jpg)
