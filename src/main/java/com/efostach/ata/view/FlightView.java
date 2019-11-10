@@ -11,11 +11,11 @@ class FlightView {
 
     private FlightController flightController = new FlightController();
 
-    void showDatesForRout(Integer routId, String date, Integer seatClass) {
+    void showDatesForRoute(Integer routeId, String date) {
         try {
-            List<Flight> flights = flightController.showDatesForRout(routId, date, seatClass);
+            List<Flight> flights = flightController.showDatesForRoute(routeId, date);
             if (!flights.isEmpty()) {
-                Iterator iterator = flightController.showDatesForRout(routId, date, seatClass).iterator();
+                Iterator iterator = flightController.showDatesForRoute(routeId, date).iterator();
                 while (iterator.hasNext()) {
                     printFlight((Flight) iterator.next());
                 }

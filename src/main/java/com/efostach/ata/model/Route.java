@@ -1,11 +1,11 @@
 package com.efostach.ata.model;
 
-public class Rout {
+public class Route {
     private Integer id;
     private String from;
     private String to;
 
-    public Rout() {
+    public Route() {
     }
 
     public Integer getId() {

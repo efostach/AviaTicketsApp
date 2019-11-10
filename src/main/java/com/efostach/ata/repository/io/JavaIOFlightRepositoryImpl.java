@@ -48,7 +48,7 @@ public class JavaIOFlightRepositoryImpl implements FlightRepository {
         for (Flight element : flights) {
             if (element.getId().equals(flight.getId())) {
                 element.setAircrafrId(flight.getAircrafrId());
-                element.setRoutId(flight.getRoutId());
+                element.setRouteId(flight.getRouteId());
                 element.setStartDate(flight.getStartDate());
                 element.setEndDate(flight.getEndDate());
                 element.setSoldSeatsCount(flight.getSoldSeatsCount());
@@ -77,7 +77,7 @@ public class JavaIOFlightRepositoryImpl implements FlightRepository {
             flight.setEndDate(attributes[2]);
             flight.setSoldSeatsCount(Integer.valueOf(attributes[3]));
             flight.setAircrafrId(Integer.valueOf(attributes[4]));
-            flight.setRoutId(Integer.valueOf(attributes[5]));
+            flight.setRouteId(Integer.valueOf(attributes[5]));
             flightSet.add(flight);
         }
         return flightSet;

@@ -10,7 +10,7 @@ public class AppConsole {
 
     private Scanner scanner = new Scanner(System.in);
     private FlightView fw = new FlightView();
-    private RoutView rw = new RoutView();
+    private RouteView rw = new RouteView();
     private TicketView tw = new TicketView();
 
     public void run() {
@@ -25,14 +25,14 @@ public class AppConsole {
             }
             case "1": {
                 printFindTicketsSubGeneralMenu();
-                rw.showAllRouts();
-                Integer routNumber = transferToIntegerValue();
+                rw.showAllRoutes();
+                Integer routeNumber = transferToIntegerValue();
 
 
                 printChooseDateToFindTicketsMenu();
                 String date = getFieldInputValue();
                 Integer seatClass = transferToIntegerValue();
-                fw.showDatesForRout(routNumber, date, seatClass);
+                fw.showDatesForRoute(routeNumber, date);
 
                 printChooseTicketToBuyMenu();
                 Integer listNumber = transferToIntegerValue();
@@ -65,7 +65,7 @@ public class AppConsole {
     }
 
     private void printFindTicketsSubGeneralMenu() {
-        System.out.println("\nEnter rout number");
+        System.out.println("\nEnter route number");
     }
 
     private void printChooseDateToFindTicketsMenu() {

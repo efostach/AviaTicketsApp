@@ -6,7 +6,7 @@ public class Flight {
     private String endDate;
     private Integer soldSeatsCount;
     private Integer aircraftId;
-    private Integer routId;
+    private Integer routeId;
 
     public Flight() {
     }
@@ -51,12 +51,12 @@ public class Flight {
         this.aircraftId = aircraftId;
     }
 
-    public Integer getRoutId() {
-        return routId;
+    public Integer getRouteId() {
+        return routeId;
     }
 
-    public void setRoutId(Integer routId) {
-        this.routId = routId;
+    public void setRouteId(Integer routId) {
+        this.routeId = routId;
     }
 
     @Override
@@ -66,7 +66,7 @@ public class Flight {
                 .append(endDate).append(",")
                 .append(soldSeatsCount).append(",")
                 .append(aircraftId).append(",")
-                .append(routId)
+                .append(routeId)
                 .append("\n").toString();
     }
 

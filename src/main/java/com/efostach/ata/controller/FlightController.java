@@ -12,18 +12,18 @@ public class FlightController {
 
     private JavaIOFlightRepositoryImpl ioFlight = new JavaIOFlightRepositoryImpl();
 
-    public List<Flight> showDatesForRout(Integer routId, String date, Integer seatClass) throws FileNotFoundException {
-        List<Flight> filteredFlightsByRout = new ArrayList<>();
+    public List<Flight> showDatesForRoute(Integer routeId, String date) throws FileNotFoundException {
+        List<Flight> filteredFlightsByRoute = new ArrayList<>();
         Iterator iterator = ioFlight.getAll().iterator();
 
         while (iterator.hasNext()) {
             Flight object = (Flight) iterator.next();
 
-            if(routId.equals(object.getRoutId()) && date.equals(object.getStartDate())) {
-                filteredFlightsByRout.add(object);
+            if(routeId.equals(object.getRouteId()) && date.equals(object.getStartDate())) {
+                filteredFlightsByRoute.add(object);
             }
         }
 
-        return filteredFlightsByRout;
+        return filteredFlightsByRoute;
     }
 }

@@ -48,8 +48,6 @@ public class JavaIOTicketRepositoryImpl implements TicketRepository {
         clearFile(file);
         for (Ticket element : tickets) {
             if (element.getTicketNumber().equals(ticket.getTicketNumber())) {
-//                Ticket ticket1 = element;
-//                System.out.println("ticket1" + ticket1.toString());
                 element = Ticket.newBuilder()
                         .setTicketNumber(ticket.getTicketNumber())
                         .setFirstName(ticket.getFirstName())

@@ -3,8 +3,8 @@ package com.efostach.ata.model;
 public class Aircraft {
     private Integer id;
     private String modelName;
-    private int economySeatsCount;
-    private int businessSeatsCount;
+    private Integer economySeatsCount;
+    private Integer businessSeatsCount;
 
     public Aircraft() {
     }
@@ -25,19 +25,19 @@ public class Aircraft {
         this.modelName = modelName;
     }
 
-    public int getEconomySeatsCount() {
+    public Integer getEconomySeatsCount() {
         return economySeatsCount;
     }
 
-    public void setEconomySeatsCount(int economySeatsCount) {
+    public void setEconomySeatsCount(Integer economySeatsCount) {
         this.economySeatsCount = economySeatsCount;
     }
 
-    public int getBusinessSeatsCount() {
+    public Integer getBusinessSeatsCount() {
         return businessSeatsCount;
     }
 
-    public void setBusinessSeatsCount(int businessSeatsCount) {
+    public void setBusinessSeatsCount(Integer businessSeatsCount) {
         this.businessSeatsCount = businessSeatsCount;
     }
 

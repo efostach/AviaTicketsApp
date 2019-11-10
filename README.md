@@ -4,10 +4,10 @@ Current application allows users to find out necessary flights, purchase chosen 
 
 ## Application structure
 
-All data stores in .csv file used as database. There are aircraft.csv, flight.csv, routs.csv, tickets.csv files in resources package.
+All data stores in .csv file used as database. There are aircraft.csv, flight.csv, routes.csv, tickets.csv files in resources package.
 
 An application can write data to file in case when user buy a ticket, read data from file for searching necessary records, update specific records during execution an operation.
-For this actions all data in correspondent file transforms to objects. Transformation logic is presented in repository package. All POJO classes (Aircraft, Flight, Rout, Ticket) correspondent stored type of objects in .csv files is presented in model package. Each java-object (POJO class) supports CRUD operations - create, get all, delete, update. Service package contains business logic of the application, controller package - the logic of actions with objects, view package - presentation data logic to users.
+For this actions all data in correspondent file transforms to objects. Transformation logic is presented in repository package. All POJO classes (Aircraft, Flight, Route, Ticket) correspondent stored type of objects in .csv files is presented in model package. Each java-object (POJO class) supports CRUD operations - create, get all, delete, update. Service package contains business logic of the application, controller package - the logic of actions with objects, view package - presentation data logic to users.
 
 ## User functionality
 
